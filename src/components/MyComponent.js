@@ -13,18 +13,18 @@ export const MyComponent = ({input}) => {
     }, []);
 
     return (
-        <div>
-            {input == false ? (date.toDateString() + " " + date.toLocaleTimeString()) : (input.isArray ? (
-                input.map(i => {
-                    return (
-                        <div>
-                            i
-                        </div>
-                    )
-                })
-            ) : (
-                input
-            ))}
+        <div style={{display: 'grid'}}>
+            {input == false ?
+                (date.toDateString() + " " + date.toLocaleTimeString()) :
+                (Array.isArray(input) ? (
+                    input.map(i => {
+                        return (
+                            <div>{i}</div>
+                        )
+                    })
+                ) : (
+                    input
+                ))}
         </div>
     )
 }
